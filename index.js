@@ -46,10 +46,12 @@ function ball() {
 
   if (ballY <= 0 || ballY + ballSize >= ch) {
     ballSpeedY = -ballSpeedY;
+    speedUp();
   }
 
   if (ballX <= 0 || ballX + ballSize >= cw) {
     ballSpeedX = -ballSpeedX;
+    speedUp();
   }
 
 }
@@ -83,8 +85,29 @@ function playerPositon(e){
   if (playerY <= 0) {
     playerY = 0;
   }
-
 }
+
+function speedUp() {
+  //console.log(ballSpeedX + "," + ballSpeedY)
+  //speed x
+  if (ballSpeedX > 0 && ballSpeedX < 20) {
+    ballSpeedX += .4;
+  } else if (ballSpeedX < 0 && ballSpeedX > -20) {
+    ballSpeedX -= .4;
+  }
+  //speed y 
+  if (ballSpeedY > 0 && ballSpeedY < 20) {
+    ballSpeedY += .3;
+  } else if (ballSpeedY < 0 && ballSpeedY > -20) {
+    ballSpeedY -= .3;
+  }
+}
+
+function  aiPosition(){
+  
+}
+
+
 canvas.addEventListener("mousemove", playerPositon)
 
 
@@ -94,7 +117,7 @@ function game() {
   ball();
   player();
   ai();
-
+  aiPosition();
 }
 
 setInterval(game, 1000/60)
