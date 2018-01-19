@@ -1,13 +1,24 @@
 body {
   margin: 0;
   padding: 0;
+ 
+  background-color: darkgray;
+}
+
+.game {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  background-color: darkgray;
+  height: 80vh;
 }
 
 canvas {
   border: 3px solid #fff;
+}
+
+p{
+  padding: 0 0.3em;
+  font-size: 5em;
+  color: #47ff00;
+  text-align: center;
 }
