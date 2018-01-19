@@ -23,8 +23,8 @@ let aiY = 200;
 const lineWidth = 6;
 const lineHeight = 16;
 
-let ballSpeedX = 1;
-let ballSpeedY = 1;
+let ballSpeedX = 5;
+let ballSpeedY = 5;
 
 function player() {
   ctx.fillStyle = '#8abb00';
@@ -104,7 +104,32 @@ function speedUp() {
 }
 
 function  aiPosition(){
-  
+  const aiMidPaddle = aiY + paddleHeight / 2;
+  const midBall = ballY + ballSize / 2;
+
+  if (ballX > 500) {
+    if (aiMidPaddle - midBall > 200) {
+      //console.log(">+200")
+      aiY -= 25;
+    } else if (aiMidPaddle - midBall > 50) {
+      //console.log("+50 -50")
+      aiY -= 10;
+    } else if (aiMidPaddle - midBall < -200) {
+      //console.log("<-200")
+      aiY += 25;
+    } else if (aiMidPaddle - midBall < -50) {
+      //console.log("-50-(-200)")
+      aiY +=10;
+    } 
+  }
+
+  else if (ballX <= 500 && ballX > 150) {
+      if (aiMidPaddle - midBall > 100) {
+        aiY -= 5;
+      } else if (aiMidPaddle - midBall < -100) {
+        aiY += 5;
+      }
+  }
 }
 
 
